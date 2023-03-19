@@ -35,7 +35,8 @@ def get_recipe(dish_name):
     output = query({
         "inputs": str(response),
     })
-
+    st.write(output)
+	
 # Create a Streamlit app
 def main():
     # Set the app title
