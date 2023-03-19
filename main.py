@@ -35,6 +35,7 @@ def app():
     st.header("Ingredients:")
     ingredients = recipe.split("Instructions:")[0]
     st.write(ingredients)
+    st.write(recipe)
 
     st.header("Instructions:")
     instructions = recipe.split("Instructions:")[1]
