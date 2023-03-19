@@ -22,5 +22,5 @@ response = generate_response(user_input)
 print(response)
 st.write(response)
 
-st.markdown(response, unsafe_allow_html=True)
+#st.markdown(response, unsafe_allow_html=True)
 
