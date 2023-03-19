@@ -21,6 +21,7 @@ def generate_response(prompt):
 
 user_input = "How to cook Tunisian Fricassé Recipe? ingredients and instructions"
 response = generate_response(user_input)
+print("-------------------------")
 print(response)
 
 st.write(response)
