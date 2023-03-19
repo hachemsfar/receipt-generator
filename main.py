@@ -1,4 +1,6 @@
 import streamlit as st
+import streamlit.components.v1 as components  # Import Streamlit
+
 import openai
 
 openai.api_key = st.secrets["API"]
@@ -20,7 +22,6 @@ def generate_response(prompt):
 user_input = "How to cook Tunisian Fricassé? I need the answer in HTML"
 response = generate_response(user_input)
 print(response)
-#st.write(response)
 
-st.markdown(response, unsafe_allow_html=True)
-
+# Render the h1 block, contained in a frame of size 200x200.
+components.html(response, width=200, height=200)
