@@ -21,5 +21,5 @@ user_input = "How to cook Fricassé?  in html"
 response = generate_response(user_input)
 print(response)
 
+st.markdown(response, unsafe_allow_html=True)
 
-st.write(response)
