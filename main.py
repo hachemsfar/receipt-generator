@@ -26,7 +26,7 @@ def get_recipe(dish_name):
 
     API_URL = "https://api-inference.huggingface.co/models/edwardjross/xlm-roberta-base-finetuned-recipe-all"
     API_TOKEN= st.secrets["API_TOKEN"]
-    headers = {"Authorization": f"Bearer {API_TOKEN}}
+    headers = {"Authorization": f"Bearer {API_TOKEN}"}
     
     requests.post(API_URL, headers=headers, json=payload)
                
