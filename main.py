@@ -21,6 +21,7 @@ def get_recipe(dish_name):
     )
 
     response = completion.choices[0].text
+    st.write(response)
 
 
 # Create a Streamlit app
@@ -35,9 +36,6 @@ def main():
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
-        st.write(response)
-
-
 
 if __name__ == "__main__":
     main()
