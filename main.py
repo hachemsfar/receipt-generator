@@ -7,16 +7,15 @@ openai.api_key = st.secrets["API"]
 
 def generate_response(prompt):
     response = openai.Completion.create(
-        engine="text-davinci-002",
+        engine="davinci",
         prompt=prompt,
-        temperature = 0.7,
-        max_tokens = 1024,
-        top_p = 1,
-        frequency_penalty = 0.5,
-        presence_penalty = 0.5
+        temperature=0.8,
+        max_tokens=100,
+        n=1,
+        stop="\n"
     )
 
-    return response.choices[0].text.strip()
+    return(response.choices[0].text.strip())
 
 
 user_input = "How to cook Tunisian Fricassé Recipe? ingredients and instructions"
