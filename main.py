@@ -1,27 +1,44 @@
 import streamlit as st
 import streamlit.components.v1 as components  # Import Streamlit
-
 import openai
 
 openai.api_key = st.secrets["API"]
 
-def generate_response(prompt):
+
+# Define the GPT-3 prompt
+def generate_recipe(dish_name):
+    prompt = f"Generate a recipe for {dish_name}"
     response = openai.Completion.create(
         engine="davinci",
         prompt=prompt,
-        temperature=0.8,
-        max_tokens=100,
+        max_tokens=1024,
         n=1,
-        stop="\n"
+        stop=None,
+        temperature=0.5,
     )
+    recipe = response.choices[0].text.strip()
+    return recipe
 
-    return(response.choices[0].text.strip())
+# Define the Streamlit app
+def app():
+    st.title("Recipe Generator")
 
+    # Get user input
+    dish_name = st.text_input("Enter the name of a dish:")
+    if not dish_name:
+        return
 
-user_input = "How to cook Tunisian Fricassé Recipe? ingredients and instructions"
-response = generate_response(user_input)
-print("-------------------------")
-print(response)
+    # Generate recipe
+    recipe = generate_recipe(dish_name)
 
-st.write(response)
+    # Display results
+    st.header("Ingredients:")
+    ingredients = recipe.split("Instructions:")[0]
+    st.write(ingredients)
 
+    st.header("Instructions:")
+    instructions = recipe.split("Instructions:")[1]
+    st.write(instructions)
+
+if __name__ == "__main__":
+    app()
