@@ -33,13 +33,13 @@ def app():
 
     # Display results
     st.header("Ingredients:")
-    ingredients = recipe.split("Instructions:")[0]
-    st.write(ingredients)
+    #ingredients = recipe.split("Instructions:")[0]
+    #st.write(ingredients)
     st.write(recipe)
 
     st.header("Instructions:")
-    instructions = recipe.split("Instructions:")[1]
-    st.write(instructions)
+    #instructions = recipe.split("Instructions:")[1]
+    #st.write(instructions)
 
 if __name__ == "__main__":
     app()
