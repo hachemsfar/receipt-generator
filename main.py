@@ -19,9 +19,9 @@ def generate_response(prompt):
     return response.choices[0].text.strip()
 
 
-user_input = "How to cook Tunisian Fricassé? I need the answer in HTML"
+user_input = "How to cook Tunisian Fricassé? I need the answer in markdown code in string "
 response = generate_response(user_input)
 print(response)
 
-# Render the h1 block, contained in a frame of size 200x200.
-components.html(response, width=200, height=200)
+st.markdown(response)
+
