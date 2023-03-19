@@ -19,7 +19,7 @@ def generate_response(prompt):
     return response.choices[0].text.strip()
 
 
-user_input = "How to cook Tunisian Fricassé Recipe?"
+user_input = "How to cook Tunisian Fricassé Recipe? ingredients and instructions"
 response = generate_response(user_input)
 print(response)
 
