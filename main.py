@@ -23,5 +23,5 @@ user_input = "How to cook Tunisian Fricassé Recipe? I need the answer in markdo
 response = generate_response(user_input)
 print(response)
 
-st.markdown(response, unsafe_allow_html=False)
+st.markdown(response)
 
