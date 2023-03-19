@@ -21,7 +21,6 @@ def get_recipe(dish_name):
     )
 
     response = completion.choices[0].text
-    return(response)
 
 
 # Create a Streamlit app
