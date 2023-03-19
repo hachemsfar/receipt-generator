@@ -2,16 +2,17 @@ import streamlit as st
 import streamlit.components.v1 as components  # Import Streamlit
 import openai
 
-openai.api_key = st.secrets["API"]
 
 
 def get_recipe(dish_name):
-    # Define the prompt
-    prompt = f"Please provide the recipe for {dish_name} ?"
-    st.write(prompt)
-    # Call the OpenAI API to get a response
-    response = openai.Completion.create(
-        engine="davinci",
+    openai.api_key = st.secrets["API"]
+    # Set up the model and prompt
+    model_engine = "text-davinci-003"
+    prompt = "How to cook chakchouka?"
+
+    # Generate a response
+    completion = openai.Completion.create(
+        engine=model_engine,
         prompt=prompt,
         max_tokens=1024,
         n=1,
@@ -19,10 +20,8 @@ def get_recipe(dish_name):
         temperature=0.5,
     )
 
-    # Extract the recipe from the response
-    recipe = response.choices[0].text.strip()
-
-    return(recipe)
+    response = completion.choices[0].text
+    return(response)
 
 
 # Create a Streamlit app
