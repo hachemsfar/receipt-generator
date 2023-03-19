@@ -22,7 +22,6 @@ def get_recipe(dish_name):
     )
 
     response = completion.choices[0].text
-    st.text(response)
     st.write(response)
 
     API_URL = "https://api-inference.huggingface.co/models/edwardjross/xlm-roberta-base-finetuned-recipe-all"
