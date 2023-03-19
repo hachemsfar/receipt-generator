@@ -1,22 +1,11 @@
 import streamlit as st
 import streamlit.components.v1 as components  # Import Streamlit
 import openai
-import requests
 
 
-API_URL = "https://api-inference.huggingface.co/models/edwardjross/xlm-roberta-base-finetuned-recipe-all"
-
-
-API_TOKEN= st.secrets["API_TOKEN"]
-headers = {"Authorization": f"Bearer {API_TOKEN}"}
-
-def query(payload):
-	response = requests.post(API_URL, headers=headers, json=payload)
-	return response.json()
 
 def get_recipe(dish_name):
     openai.api_key = st.secrets["API"]
-    
     # Set up the model and prompt
     model_engine = "text-davinci-003"
     prompt = "How to cook "+str(dish_name)+" ?"
@@ -33,12 +22,6 @@ def get_recipe(dish_name):
 
     response = completion.choices[0].text
     st.write(response)
-
-    output = query({
-        "inputs": response,
-    })
-
-    st.write(output)
 
 
 # Create a Streamlit app
