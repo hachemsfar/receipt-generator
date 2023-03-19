@@ -19,9 +19,9 @@ def generate_response(prompt):
     return response.choices[0].text.strip()
 
 
-user_input = "How to cook Tunisian Fricassé Recipe? I need the answer in markdown code in string"
+user_input = "How to cook Tunisian Fricassé Recipe?"
 response = generate_response(user_input)
 print(response)
 
-st.markdown(response)
+st.write(response)
 
