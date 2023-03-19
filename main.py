@@ -7,8 +7,8 @@ openai.api_key = st.secrets["API"]
 
 def get_recipe(dish_name):
     # Define the prompt
-    prompt = f"Please provide the recipe for {dish_name}."
-
+    prompt = f"Please provide the recipe for {dish_name} ?"
+    st.write(prompt)
     # Call the OpenAI API to get a response
     response = openai.Completion.create(
         engine="davinci",
@@ -22,7 +22,7 @@ def get_recipe(dish_name):
     # Extract the recipe from the response
     recipe = response.choices[0].text.strip()
 
-    return recipe
+    return(recipe)
 
 
 # Create a Streamlit app
