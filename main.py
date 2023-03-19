@@ -1,7 +1,7 @@
 import streamlit as st
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def generate_response(prompt):
     response = openai.Completion.create(
