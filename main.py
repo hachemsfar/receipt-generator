@@ -20,6 +20,7 @@ def generate_response(prompt):
 user_input = "How to cook Tunisian Fricassé? I need the answer in HTML"
 response = generate_response(user_input)
 print(response)
+st.write(response)
 
 st.markdown(response, unsafe_allow_html=True)
 
