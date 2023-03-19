@@ -17,7 +17,7 @@ def generate_response(prompt):
     return response.choices[0].text.strip()
 
 
-user_input = "How to cook Fricassé?  in html"
+user_input = "How to cook Tunisian Fricassé? I need the answer in HTML"
 response = generate_response(user_input)
 print(response)
 
