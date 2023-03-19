@@ -8,7 +8,7 @@ def get_recipe(dish_name):
     openai.api_key = st.secrets["API"]
     # Set up the model and prompt
     model_engine = "text-davinci-003"
-    prompt = "How to cook chakchouka?"
+    prompt = "How to cook "+str(dish_name)+" ?"
 
     # Generate a response
     completion = openai.Completion.create(
@@ -21,7 +21,6 @@ def get_recipe(dish_name):
     )
 
     response = completion.choices[0].text
-    st.write(response)
     return(response)
 
 
@@ -37,9 +36,8 @@ def main():
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
+        st.write(response)
 
-        # Display the recipe in a text box
-        st.text_area("Recipe", recipe)
 
 
 if __name__ == "__main__":
