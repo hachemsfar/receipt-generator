@@ -46,7 +46,7 @@ def get_recipe(dish_name):
             k=i['end']
 		
     new_text=new_text+response[k:]
-    st.write(new_text)
+    st.markdown(new_text,unsafe_allow_html=True)
 	
 # Create a Streamlit app
 def main():
