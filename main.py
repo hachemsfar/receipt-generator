@@ -60,7 +60,8 @@ def generate_image(prompt):
     image_url = response.data[0].url
     image_data = requests.get(image_url).content
     image = Image.open(BytesIO(image_data))
-    return(image)
+    st.image(image)
+    return("")
 
 def get_recipe(dish_name):
     openai.api_key = st.secrets["API"]
@@ -125,7 +126,7 @@ def main():
 	
         if st.button("Get Photo:"):
             image = generate_image(ingredient)
-	    st.image(image)
+	    
 	
 
 
