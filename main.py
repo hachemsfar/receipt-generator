@@ -51,6 +51,7 @@ st.markdown(
 )
 
 def generate_image(prompt):
+    openai.api_key = st.secrets["API"]
     response = openai.Image.create(
 	    prompt=prompt,
 	    n=1,
