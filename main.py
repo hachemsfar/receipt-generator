@@ -86,7 +86,7 @@ def get_recipe(dish_name):
     for i in output:
         if(i['entity_group']=="NAME"):
             new_text=new_text+response[k:i['start']]
-            new_text=new_text+str("<mark data-entity=\"person\">"+str(response[i['start']:i['end']])+"</mark>")
+            new_text=new_text+str("<mark data-entity=\"ingredient\">"+str(response[i['start']:i['end']])+"</mark>")
             k=i['end']
 		
     new_text=new_text+response[k:]
