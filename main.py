@@ -121,6 +121,7 @@ def main():
 
     # Create a button to submit the dish name
     if st.button("Submit"):
+	image = generate_image(ingredient)
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
 
