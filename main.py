@@ -97,7 +97,7 @@ def get_recipe(dish_name):
     output = query({
         "inputs": str(response),
     })
-    #st.write(output)
+    st.write(output)
 	
     new_text=""
     k=0
