@@ -3,6 +3,50 @@ import streamlit.components.v1 as components  # Import Streamlit
 import openai
 import requests
 
+st.markdown(
+    """<style>
+	.entities {
+	     line-height: 2; 
+	}
+
+	[data-entity] {
+	     padding: 0.25em 0.35em;
+	     margin: 0px 0.25em;
+	     line-height: 1;
+	     display: inline-block;
+	     border-radius: 0.25em;
+	     border: 1px solid; 
+	}
+
+	[data-entity]::after {
+	     box-sizing: border-box;
+	     content: attr(data-entity);
+	     font-size: 0.6em;
+	     line-height: 1;
+	     padding: 0.35em;
+	     border-radius: 0.35em;
+	     text-transform: uppercase;
+	     display: inline-block;
+	     vertical-align: middle;
+	     margin: 0px 0px 0.1rem 0.5rem; 
+	}
+
+	[data-entity][data-entity="person"] {
+	     background: rgba(166, 226, 45, 0.2);
+	     border-color: rgb(166, 226, 45); 
+	}
+
+	[data-entity][data-entity="person"]::after {
+	     background: rgb(166, 226, 45); 
+	}
+
+	body {
+	    padding: 25px 50px;
+	    font: 18px Helvetica, Arial, sans-serif;
+	}
+        </style>""",
+    unsafe_allow_html=True,
+)
 
 
 def get_recipe(dish_name):
@@ -42,7 +86,7 @@ def get_recipe(dish_name):
     for i in output:
         if(i['entity_group']=="NAME"):
             new_text=new_text+response[k:i['start']]
-            new_text=new_text+str("<span style=\"background-color: yellow\">"+str(response[i['start']:i['end']])+"</span>")
+            new_text=new_text+str("<mark data-entity=\"person\">"+str(response[i['start']:i['end']])+"</mark>")
             k=i['end']
 		
     new_text=new_text+response[k:]
