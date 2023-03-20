@@ -103,7 +103,7 @@ def main():
     # Create a button to submit the dish name
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
-        st.subheader("This is how you can make"+str(dish_name))
+        st.subheader("How to make "+str(dish_name))
         recipe = get_recipe(dish_name)
 
 if __name__ == "__main__":
