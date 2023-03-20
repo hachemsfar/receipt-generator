@@ -45,7 +45,7 @@ def get_recipe(dish_name):
             new_text=new_text+str("<span style=\"background-color: yellow\">"+str(response[i['start']:i['end']])+"</span>")
             k=i['end']
 		
-    new_text=new_text+response[i['end']:]
+    new_text=new_text+response[k:]
     st.write(new_text)
 	
 # Create a Streamlit app
