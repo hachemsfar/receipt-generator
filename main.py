@@ -31,12 +31,12 @@ st.markdown(
 	     margin: 0px 0px 0.1rem 0.5rem; 
 	}
 
-	[data-entity][data-entity="person"] {
+	[data-entity][data-entity="ingredient"] {
 	     background: rgba(166, 226, 45, 0.2);
 	     border-color: rgb(166, 226, 45); 
 	}
 
-	[data-entity][data-entity="person"]::after {
+	[data-entity][data-entity="ingredient"]::after {
 	     background: rgb(166, 226, 45); 
 	}
 
