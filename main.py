@@ -123,7 +123,7 @@ def main():
         recipe = get_recipe(dish_name)
         ingredient = st.text_input("Enter the ingredient name:")
 	
-        if st.button("Get Photo:")
+        if st.button("Get Photo:"):
             image = generate_image(ingredient)
 	    st.image(image)
 	
