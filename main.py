@@ -42,7 +42,7 @@ def get_recipe(dish_name):
     for i in output:
         if(i['entity_group']=="NAME"):
             new_text=new_text+response[k:i['start']]
-            new_text=new_text+str(<span style="background-color: yellow">"+str(response[i['start']:i['end']])+"</span>)
+            new_text=new_text+str(<span style="background-color: yellow">str(response[i['start']:i['end']])</span>)
             k=i['end']
 		
     new_text=new_text+response[i['end']:]
