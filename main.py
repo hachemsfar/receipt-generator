@@ -123,9 +123,9 @@ def main():
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
         ingredient = st.text_input("Enter the ingredient name:")
-	
-        if st.button("Get Photo:"):
-            image = generate_image(ingredient)
+
+    if st.button("Get Photo"):
+        image = generate_image(ingredient)
 	    
 	
 
