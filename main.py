@@ -95,7 +95,7 @@ def get_recipe(dish_name):
 # Create a Streamlit app
 def main():
     # Set the app title
-    st.title("Recipe App")
+    st.title("Recipe Generator")
 
     # Create a text input field for the dish name
     dish_name = st.text_input("Enter the dish name:")
@@ -103,6 +103,7 @@ def main():
     # Create a button to submit the dish name
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
+	st.subheader("This is how you can make"+str(dish_name))
         recipe = get_recipe(dish_name)
 
 if __name__ == "__main__":
