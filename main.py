@@ -104,9 +104,9 @@ def get_recipe(dish_name):
     receipt=False
     for i in output:
         if(i['entity_group']=="NAME"):
-            new_text=new_text+response[k:i['start']]
-            new_text=new_text+str("<mark data-entity=\"ingredient\">"+str(response[i['start']:i['end']])+"</mark>")
-            k=i['end']
+            new_text=new_text+response[k:int(i['start'])]
+            new_text=new_text+str("<mark data-entity=\"ingredient\">"+str(response[int(i['start']):int(i['end']+1)])+"</mark>")
+            k=int(i['end'])
             receipt=True
 		
     if(receipt==True):
