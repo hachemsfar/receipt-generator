@@ -52,7 +52,7 @@ st.markdown(
 
 def generate_image(prompt):
     openai.api_key = st.secrets["API"]
-    #prompt = "How to cook "+str(prompt)+" ?"
+    prompt = prompt+" food" 
 	
     response = openai.Image.create(
 	    prompt=prompt,
