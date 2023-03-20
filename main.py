@@ -50,6 +50,17 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+def generate_image(prompt):
+    response = openai.Image.create(
+	    prompt=prompt,
+	    n=1,
+	    size="512x512"
+	)
+
+    image_url = response.data[0].url
+    image_data = requests.get(image_url).content
+    image = Image.open(BytesIO(image_data))
+    return(image)
 
 def get_recipe(dish_name):
     openai.api_key = st.secrets["API"]
@@ -110,23 +121,13 @@ def main():
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
-    	ingredient = st.text_input("Enter the ingredient name:")
+        ingredient = st.text_input("Enter the ingredient name:")
 	
-	if st.button("Get Photo:")
-	    image = generate_image(ingredient)
+        if st.button("Get Photo:")
+            image = generate_image(ingredient)
 	    st.image(image)
 	
-    def generate_image(prompt):
-        response = openai.Image.create(
-            prompt=prompt,
-            n=1,
-            size="512x512"
-        )
 
-        image_url = response.data[0].url
-        image_data = requests.get(image_url).content
-        image = Image.open(BytesIO(image_data))
-        return(image)
 
 
 if __name__ == "__main__":
