@@ -83,14 +83,18 @@ def get_recipe(dish_name):
 	
     new_text=""
     k=0
+    receipt=False
     for i in output:
         if(i['entity_group']=="NAME"):
             new_text=new_text+response[k:i['start']]
             new_text=new_text+str("<mark data-entity=\"ingredient\">"+str(response[i['start']:i['end']])+"</mark>")
             k=i['end']
+	    receipt=True
 		
-    new_text=new_text+response[k:]
-    st.markdown(new_text,unsafe_allow_html=True)
+    if(receipt==True):
+        st.subheader("How to make "+str(dish_name))
+        new_text=new_text+response[k:]
+        st.markdown(new_text,unsafe_allow_html=True)
 	
 # Create a Streamlit app
 def main():
@@ -103,7 +107,6 @@ def main():
     # Create a button to submit the dish name
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
-        st.subheader("How to make "+str(dish_name))
         recipe = get_recipe(dish_name)
 
 if __name__ == "__main__":
