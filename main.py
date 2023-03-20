@@ -110,7 +110,6 @@ def main():
     if st.button("Submit"):
         # Call the get_recipe function to get the recipe
         recipe = get_recipe(dish_name)
-	
     	ingredient = st.text_input("Enter the ingredient name:")
 	
 	if st.button("Get Photo:")
