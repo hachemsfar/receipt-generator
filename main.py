@@ -89,7 +89,7 @@ def get_recipe(dish_name):
             new_text=new_text+response[k:i['start']]
             new_text=new_text+str("<mark data-entity=\"ingredient\">"+str(response[i['start']:i['end']])+"</mark>")
             k=i['end']
-	    receipt=True
+            receipt=True
 		
     if(receipt==True):
         st.subheader("How to make "+str(dish_name))
