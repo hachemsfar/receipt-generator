@@ -69,22 +69,32 @@ def generate_image(prompt):
 def get_recipe(dish_name):
     openai.api_key = st.secrets["API"]
     # Set up the model and prompt
-    model_engine = "text-davinci-003"
-    prompt = "How to cook "+str(dish_name)+" ?"
-
-    # Generate a response
-    completion = openai.Completion.create(
-        engine=model_engine,
+    if not re.match("^[a-zA-Z]+$", dish_name):
+        return "No recipe found"
+    
+    # Generate a prompt to request a recipe for the dish
+    prompt = f"Please give me the recipe for {dish_name}."
+    
+    # Use OpenAI's GPT-3 to generate a recipe based on the prompt
+    response = openai.Completion.create(
+        engine="davinci",
         prompt=prompt,
         max_tokens=1024,
         n=1,
         stop=None,
-        temperature=0.5,
+        temperature=0.7,
     )
-
-    response = completion.choices[0].text
-    print(response)
-    #st.write(response)
+    
+    # Extract the generated recipe from the API response
+    recipe = response.choices[0].text.strip()
+    
+    # Check if the recipe is empty
+    if not recipe:
+        return "No recipe found"
+    
+    # Return the generated recipe
+    print(recipe)
+    st.write(response)
 
     API_URL = "https://api-inference.huggingface.co/models/edwardjross/xlm-roberta-base-finetuned-recipe-all"
     API_TOKEN= st.secrets["API_TOKEN"]
